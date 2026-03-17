@@ -1062,6 +1062,243 @@
             margin-top: 1.5rem;
         }
 
+        /* Grand Opening Promo Section */
+        .grand-opening-promo {
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, var(--fiesta-green) 0%, #1a6b1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Student Discount Banner */
+        .student-discount-banner {
+            background: linear-gradient(135deg, #4169E1 0%, #1E3A8A 100%);
+            padding: 2.5rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--fiesta-yellow);
+            border-bottom: 4px solid var(--fiesta-yellow);
+        }
+
+        .student-discount-banner::before {
+            content: '🎓';
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .student-discount-banner::after {
+            content: '🎓';
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .student-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .student-main-text {
+            font-family: 'Lilita One', cursive;
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 3px 3px 0 #1E3A8A;
+            margin-bottom: 0.5rem;
+        }
+
+        .student-main-text .highlight {
+            color: var(--fiesta-yellow);
+            font-size: 4.5rem;
+        }
+
+        .student-sub-text {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 700;
+        }
+
+        .student-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #4169E1 0%, #1E3A8A 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: 3px solid var(--fiesta-yellow);
+            margin-bottom: 1.5rem;
+            box-shadow: 3px 3px 0 var(--brown);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .student-hero-badge .student-icon {
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .student-main-text { font-size: 2.2rem; }
+            .student-main-text .highlight { font-size: 3rem; }
+            .student-sub-text { font-size: 1rem; }
+            .student-discount-banner::before,
+            .student-discount-banner::after { display: none; }
+        }
+
+        .grand-opening-promo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--fiesta-red) 0px, var(--fiesta-red) 40px,
+                var(--fiesta-yellow) 40px, var(--fiesta-yellow) 80px,
+                var(--fiesta-orange) 80px, var(--fiesta-orange) 120px,
+                var(--fiesta-pink) 120px, var(--fiesta-pink) 160px
+            );
+        }
+
+        .grand-opening-promo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--fiesta-red) 0px, var(--fiesta-red) 40px,
+                var(--fiesta-yellow) 40px, var(--fiesta-yellow) 80px,
+                var(--fiesta-orange) 80px, var(--fiesta-orange) 120px,
+                var(--fiesta-pink) 120px, var(--fiesta-pink) 160px
+            );
+        }
+
+        .promo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .promo-badge {
+            display: inline-block;
+            background: var(--fiesta-red);
+            color: white;
+            padding: 1rem 3rem;
+            font-family: 'Lilita One', cursive;
+            font-size: 2.5rem;
+            border: 5px solid var(--brown);
+            border-radius: 10px;
+            box-shadow: 6px 6px 0 var(--brown);
+            margin-bottom: 1.5rem;
+            transform: rotate(-2deg);
+            text-shadow: 2px 2px 0 #8B0000;
+        }
+
+        .promo-main {
+            background: var(--fiesta-yellow);
+            border: 6px solid var(--brown);
+            border-radius: 25px;
+            padding: 2.5rem 3rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 8px 8px 0 var(--brown);
+        }
+
+        .promo-free {
+            font-family: 'Lilita One', cursive;
+            font-size: 4rem;
+            color: var(--fiesta-red);
+            text-shadow: 3px 3px 0 var(--brown);
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-subtitle {
+            font-family: 'Lilita One', cursive;
+            font-size: 2rem;
+            color: var(--fiesta-green);
+        }
+
+        .promo-details {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .promo-detail-box {
+            background: white;
+            border: 4px solid var(--brown);
+            border-radius: 15px;
+            padding: 1.25rem 2rem;
+            box-shadow: 4px 4px 0 var(--brown);
+        }
+
+        .promo-detail-box .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .promo-detail-box .label {
+            font-size: 0.85rem;
+            color: var(--brown);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .promo-detail-box .value {
+            font-family: 'Lilita One', cursive;
+            font-size: 1.5rem;
+            color: var(--fiesta-red);
+        }
+
+        .promo-cta {
+            display: inline-block;
+            background: var(--fiesta-red);
+            color: white;
+            padding: 1rem 3rem;
+            font-family: 'Lilita One', cursive;
+            font-size: 1.5rem;
+            border: 4px solid var(--brown);
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 5px 5px 0 var(--brown);
+            transition: all 0.3s;
+        }
+
+        .promo-cta:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 var(--brown);
+            background: var(--fiesta-orange);
+        }
+
+        @media (max-width: 768px) {
+            .promo-badge { font-size: 1.8rem; padding: 0.75rem 2rem; }
+            .promo-free { font-size: 2.5rem; }
+            .promo-subtitle { font-size: 1.4rem; }
+            .promo-details { gap: 1rem; }
+            .promo-detail-box { padding: 1rem 1.5rem; }
+            .promo-detail-box .value { font-size: 1.2rem; }
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-container {
@@ -1097,7 +1334,9 @@
     <div class="announcement-bar">
         <p>
             <span class="sparkle">🎉</span>
-            NOW OPEN! Soft Opening Special — Visit Us Today!
+            GRAND OPENING MARCH 21ST — FREE BOWLS 2PM to 6PM! 
+            <span class="sparkle">🎓</span>
+            STUDENTS GET 15% OFF!
             <span class="sparkle">🎉</span>
         </p>
     </div>
@@ -1157,10 +1396,14 @@
 
         <div class="hero-container">
             <div class="hero-content">
-                <div class="soft-opening-badge">🎊 NOW OPEN — SOFT OPENING! 🎊</div>
+                <div class="soft-opening-badge">🎊 GRAND OPENING — MARCH 21ST! 🎊</div>
                 <h1>GUAC-O-LICIOUS <span>Fresh & Healthy Mexican Grill</span></h1>
-                <p class="hero-tagline">Where Fresh Meets Delicious!</p>
-                <p>Made fresh daily with premium ingredients. Build your perfect bowl, burrito, tacos, or nachos exactly the way you want it!</p>
+                <p class="hero-tagline">Grand Opening Celebration!</p>
+                <p>Join us Saturday, March 21st for our Grand Opening! We're giving away <strong>FREE BOWLS</strong> to all customers from 2PM to 6PM. Don't miss out on this delicious celebration!</p>
+                <div class="student-hero-badge">
+                    <span class="student-icon">🎓</span>
+                    <span>STUDENTS GET 15% OFF!</span>
+                </div>
                 <div class="hero-buttons">
                     <a href="#menu" class="btn-primary">View Menu 📋</a>
                     <a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w?diningMode=DELIVERY&mod=storeDeliveryTime&modctx=%257B%2522entryPoint%2522%253A%2522store-auto-surface%2522%252C%2522encodedStoreUuid%2522%253A%2522vfTOrEP9XjSD5LqVnMiB6w%2522%257D&ps=1&sc=SEARCH_SUGGESTION" target="_blank" class="btn-secondary">Order Now 📞</a>
@@ -1177,9 +1420,9 @@
             <div class="hero-image-section">
                 <img src="burrito-bowl-salsa.jpg" alt="Delicious Burrito Bowl" class="hero-image-main">
                 <div class="hero-sticker">
-                    <span class="big">NOW</span>
-                    <span class="big">OPEN!</span>
-                    <span class="small">7 DAYS A WEEK</span>
+                    <span class="big">FREE</span>
+                    <span class="big">BOWLS!</span>
+                    <span class="small">MARCH 21ST</span>
                 </div>
             </div>
         </div>
@@ -1196,6 +1439,46 @@
             </div>
         </div>
     </div>
+
+    <!-- Student Discount Banner -->
+    <section class="student-discount-banner">
+        <div class="student-content">
+            <div class="student-main-text">🎓 STUDENTS GET <span class="highlight">15% OFF!</span></div>
+            <div class="student-sub-text">Just show your valid student ID at checkout!</div>
+        </div>
+    </section>
+
+    <!-- Grand Opening Promo Section -->
+    <section class="grand-opening-promo">
+        <div class="promo-container">
+            <div class="promo-badge">🎉 GRAND OPENING 🎉</div>
+            
+            <div class="promo-main">
+                <div class="promo-free">FREE BOWLS!</div>
+                <div class="promo-subtitle">For All Customers! 🥣🥑🌶️</div>
+            </div>
+
+            <div class="promo-details">
+                <div class="promo-detail-box">
+                    <div class="icon">📅</div>
+                    <div class="label">Date</div>
+                    <div class="value">Saturday, March 21st</div>
+                </div>
+                <div class="promo-detail-box">
+                    <div class="icon">⏰</div>
+                    <div class="label">Time</div>
+                    <div class="value">2:00 PM to 6:00 PM</div>
+                </div>
+                <div class="promo-detail-box">
+                    <div class="icon">📍</div>
+                    <div class="label">Location</div>
+                    <div class="value">Stroudsburg, PA</div>
+                </div>
+            </div>
+
+            <a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w?diningMode=DELIVERY&mod=storeDeliveryTime&modctx=%257B%2522entryPoint%2522%253A%2522store-auto-surface%2522%252C%2522encodedStoreUuid%2522%253A%2522vfTOrEP9XjSD5LqVnMiB6w%2522%257D&ps=1&sc=SEARCH_SUGGESTION" target="_blank" class="promo-cta">🌮 Order Now!</a>
+        </div>
+    </section>
 
     <!-- Sliding Food Showcase -->
     <section class="food-showcase">
