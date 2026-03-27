@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guac-O-Licious | Exclusive Coupon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #228B22;
+            --green-dark: #1a6b1a;
+            --red: #C41E3A;
+            --yellow: #FFD700;
+            --orange: #FF6B35;
+            --brown: #5D3A1A;
+            --cream: #FFFDF5;
+            --cream-dark: #F5E6C8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--cream);
+            color: var(--brown);
+        }
+
+        /* Navigation Bar - Matches Main Website */
+        .navbar {
+            background: rgba(255,253,245,0.98);
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--red);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-avocado {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #90EE90 0%, var(--green) 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            border: 3px solid var(--brown);
+        }
+
+        .logo-text {
+            font-family: 'Lilita One', cursive;
+            font-size: 22px;
+            color: var(--green);
+            text-shadow: 1px 1px 0 var(--yellow);
+        }
+
+        .logo-text span {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--brown);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--red);
+        }
+
+        .nav-order-btn {
+            background: var(--red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: 'Lilita One', cursive;
+            font-size: 14px;
+            text-decoration: none;
+            border: 2px solid var(--brown);
+            transition: all 0.3s;
+        }
+
+        .nav-order-btn:hover {
+            background: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            padding: 40px 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🌮 🥑 🌯 🧀 🌶️';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            letter-spacing: 20px;
+            opacity: 0.3;
+        }
+
+        .hero h1 {
+            font-family: 'Lilita One', cursive;
+            font-size: 36px;
+            color: white;
+            text-shadow: 2px 2px 0 var(--brown);
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            color: var(--yellow);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Screens */
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        /* Card Style */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            border: 3px solid var(--brown);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Input Screen */
+        .input-screen h2 {
+            font-family: 'Lilita One', cursive;
+            font-size: 26px;
+            color: var(--green);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .input-screen .subtitle {
+            text-align: center;
+            color: var(--brown);
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .input-group label .required {
+            color: var(--red);
+        }
+
+        .input-group label .optional {
+            color: #888;
+            font-weight: 600;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 18px;
+            border: 3px solid var(--brown);
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(34,139,34,0.2);
+        }
+
+        .input-field::placeholder {
+            color: #aaa;
+        }
+
+        .email-incentive {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFEF5 100%);
+            border: 2px solid var(--yellow);
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--brown);
+        }
+
+        .email-incentive strong {
+            color: var(--green);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--red);
+            color: white;
+            border: 3px solid var(--brown);
+            border-radius: 12px;
+            font-family: 'Lilita One', cursive;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 4px 4px 0 var(--brown);
+            transition: all 0.2s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--brown);
+        }
+
+        .error-msg {
+            color: var(--red);
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 700;
+            display: none;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--cream);
+            border-top-color: var(--green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Coupon Screen */
+        .coupon-screen {
+            text-align: center;
+        }
+
+        .coupon-badge {
+            background: var(--yellow);
+            color: var(--brown);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 2px solid var(--brown);
+        }
+
+        .coupon-badge.returning {
+            background: var(--orange);
+            color: white;
+        }
+
+        .discount-display {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 4px solid var(--brown);
+        }
+
+        .discount-amount {
+            font-family: 'Lilita One', cursive;
+            font-size: 58px;
+            color: white;
+            text-shadow: 3px 3px 0 var(--brown);
+            line-height: 1;
+        }
+
+        .discount-label {
+            font-family: 'Lilita One', cursive;
+            font-size: 22px;
+            color: var(--yellow);
+        }
+
+        .discount-condition {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* Code Display */
+        .code-section {
+            background: #f8f8f8;
+            border: 3px dashed var(--brown);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .code-label {
+            font-size: 14px;
+            color: var(--brown);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .code-display {
+            font-family: 'Courier New', monospace;
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--red);
+            letter-spacing: 3px;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: 3px solid var(--brown);
+            display: inline-block;
+        }
+
+        .code-type {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .show-cashier {
+            background: var(--red);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Lilita One', cursive;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 3px solid var(--brown);
+            display: inline-block;
+        }
+
+        .valid-info {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        /* CTA Buttons */
+        .cta-section {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px solid #eee;
+        }
+
+        .cta-title {
+            font-family: 'Lilita One', cursive;
+            font-size: 18px;
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 3px solid var(--brown);
+        }
+
+        .cta-btn.menu {
+            background: var(--green);
+            color: white;
+        }
+
+        .cta-btn.directions {
+            background: var(--yellow);
+            color: var(--brown);
+        }
+
+        .cta-btn.order {
+            background: var(--red);
+            color: white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn .icon {
+            font-size: 20px;
+        }
+
+        /* Already Used Screen */
+        .used-screen .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .used-screen h2 {
+            font-family: 'Lilita One', cursive;
+            color: var(--brown);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .used-screen p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* ID Discount Note */
+        .id-discount-note {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 25px;
+            text-align: center;
+            border: 3px solid var(--brown);
+        }
+
+        .id-discount-note p {
+            color: white;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .id-discount-note .groups {
+            color: var(--yellow);
+            font-weight: 800;
+            font-size: 11px;
+        }
+
+        /* Cashier Note */
+        .cashier-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #856404;
+            text-align: left;
+        }
+
+        /* Menu Preview Section */
+        .menu-preview {
+            margin-top: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 20px;
+            border: 3px solid var(--brown);
+        }
+
+        .menu-preview h3 {
+            font-family: 'Lilita One', cursive;
+            font-size: 22px;
+            color: var(--green);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .menu-item {
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid var(--brown);
+        }
+
+        .menu-item p {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--brown);
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--brown);
+            color: white;
+            padding: 30px 5%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Lilita One', cursive;
+            font-size: 24px;
+            color: var(--yellow);
+            margin-bottom: 15px;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .footer-info a {
+            color: var(--yellow);
+            text-decoration: none;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .discount-amount {
+                font-size: 48px;
+            }
+            
+            .code-display {
+                font-size: 28px;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="https://guacolicious.com" class="logo">
+            <div class="logo-avocado">😎</div>
+            <div class="logo-text">GUAC<span>-O-</span>LICIOUS</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="https://guacolicious.com#menu">Menu</a></li>
+            <li><a href="https://guacolicious.com#location">Location</a></li>
+        </ul>
+        <a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w" target="_blank" class="nav-order-btn">Order Now 🛒</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <h1>🎉 Exclusive Coupon!</h1>
+        <p>Get your special discount code below</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Screen 1: Input Form -->
+        <div id="inputScreen" class="screen active">
+            <div class="card">
+                <h2>Claim Your Coupon!</h2>
+                <p class="subtitle">Enter your info to receive your exclusive discount code</p>
+                
+                <div class="input-group">
+                    <label>👤 Your Name <span class="required">*</span></label>
+                    <input type="text" id="nameInput" class="input-field" placeholder="John Smith">
+                </div>
+                
+                <div class="input-group">
+                    <label>📱 Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phoneInput" class="input-field" placeholder="(555) 123-4567" maxlength="14">
+                </div>
+                
+                <div class="input-group">
+                    <label>📧 Email Address <span class="required">*</span></label>
+                    <input type="email" id="emailInput" class="input-field" placeholder="you@email.com">
+                    <div class="email-incentive">
+                        <strong>🎁 You'll receive</strong> exclusive deals, new menu alerts, and special birthday offers!
+                    </div>
+                </div>
+                
+                <button id="submitBtn" class="submit-btn" onclick="submitForm()">GET MY CODE 🌮</button>
+                
+                <p id="errorMsg" class="error-msg"></p>
+
+                <div class="id-discount-note">
+                    <p>🎓 Students, Military, Veterans, Seniors, Medical Workers & First Responders</p>
+                    <p class="groups">Always get 15% OFF with valid ID — no coupon needed!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 2: Loading -->
+        <div id="loadingScreen" class="screen">
+            <div class="card loading">
+                <div class="spinner"></div>
+                <p>Generating your code...</p>
+            </div>
+        </div>
+
+        <!-- Screen 3: First Visit Coupon -->
+        <div id="firstVisitScreen" class="screen">
+            <div class="card coupon-screen">
+                <div class="coupon-badge">🎉 WELCOME! FIRST VISIT</div>
+                
+                <div class="discount-display">
+                    <div class="discount-amount">15% OFF</div>
+                    <div class="discount-label">YOUR ORDER!</div>
+                </div>
+
+                <div class="code-section">
+                    <div class="code-label">🎟️ YOUR COUPON CODE:</div>
+                    <div class="code-display" id="code1"></div>
+                    <div class="code-type">Show this code to cashier</div>
+                </div>
+                
+                <div class="show-cashier">📱 SHOW THIS TO CASHIER</div>
+                
+                <div class="valid-info">
+                    Valid today • <span id="todayDate1"></span>
+                </div>
+
+                <div class="cashier-note">
+                    <strong>📋 For Cashier:</strong> Code starts with "F" → Apply <strong>15% Off</strong> discount
+                </div>
+
+                <!-- Call to Action Buttons -->
+                <div class="cta-section">
+                    <div class="cta-title">While You're Here...</div>
+                    <div class="cta-buttons">
+                        <a href="https://guacolicious.com#menu" class="cta-btn menu">
+                            <span class="icon">📋</span> View Our Full Menu
+                        </a>
+                        <a href="https://maps.google.com/?q=100+N+9th+Road+Stroudsburg+PA+18360" target="_blank" class="cta-btn directions">
+                            <span class="icon">📍</span> Get Directions
+                        </a>
+                        <a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w" target="_blank" class="cta-btn order">
+                            <span class="icon">🛒</span> Order Delivery Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Preview -->
+            <div class="menu-preview">
+                <h3>🔥 Our Most Popular Items</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="https://guacolicious.com/burrito-bowl.jpg" alt="Burrito Bowl" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23228B22%22 width=%22100%22 height=%22100%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22>🥣</text></svg>'">
+                        <p>Burrito Bowls</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://guacolicious.com/tacos-loaded.jpg" alt="Tacos" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23C41E3A%22 width=%22100%22 height=%22100%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22>🌮</text></svg>'">
+                        <p>Loaded Tacos</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://guacolicious.com/quesadilla.jpg" alt="Quesadilla" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23FFD700%22 width=%22100%22 height=%22100%22/><text x=%2250%%22 y=%2250%%22 fill=%22%235D3A1A%22 text-anchor=%22middle%22 dy=%22.3em%22>🧀</text></svg>'">
+                        <p>Quesadillas</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://guacolicious.com/birria-tacos.png" alt="Birria Tacos" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23FF6B35%22 width=%22100%22 height=%22100%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22>🌮</text></svg>'">
+                        <p>Birria Tacos</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://guacolicious.com/loaded-nachos.jpg" alt="Nachos" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23228B22%22 width=%22100%22 height=%22100%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22>🧀</text></svg>'">
+                        <p>Loaded Nachos</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://guacolicious.com/churros.png" alt="Churros" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%235D3A1A%22 width=%22100%22 height=%22100%22/><text x=%2250%%22 y=%2250%%22 fill=%22%23FFD700%22 text-anchor=%22middle%22 dy=%22.3em%22>🍩</text></svg>'">
+                        <p>Churros</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 4: Second Visit Coupon -->
+        <div id="secondVisitScreen" class="screen">
+            <div class="card coupon-screen">
+                <div class="coupon-badge returning">🙌 WELCOME BACK!</div>
+                
+                <div class="discount-display">
+                    <div class="discount-amount">$5 OFF</div>
+                    <div class="discount-label">YOUR ORDER!</div>
+                    <div class="discount-condition">On orders $20 or more</div>
+                </div>
+
+                <div class="code-section">
+                    <div class="code-label">🎟️ YOUR COUPON CODE:</div>
+                    <div class="code-display" id="code2"></div>
+                    <div class="code-type">Show this code to cashier</div>
+                </div>
+                
+                <div class="show-cashier">📱 SHOW THIS TO CASHIER</div>
+                
+                <div class="valid-info">
+                    Valid today • <span id="todayDate2"></span>
+                </div>
+
+                <div class="cashier-note">
+                    <strong>📋 For Cashier:</strong> Code starts with "S" → Apply <strong>$5 Off</strong> discount (orders $20+)
+                </div>
+
+                <!-- Call to Action Buttons -->
+                <div class="cta-section">
+                    <div class="cta-title">Ready to Order?</div>
+                    <div class="cta-buttons">
+                        <a href="https://guacolicious.com#menu" class="cta-btn menu">
+                            <span class="icon">📋</span> View Our Full Menu
+                        </a>
+                        <a href="https://maps.google.com/?q=100+N+9th+Road+Stroudsburg+PA+18360" target="_blank" class="cta-btn directions">
+                            <span class="icon">📍</span> Get Directions
+                        </a>
+                        <a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w" target="_blank" class="cta-btn order">
+                            <span class="icon">🛒</span> Order Delivery Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 5: Already Used -->
+        <div id="usedScreen" class="screen">
+            <div class="card coupon-screen used-screen">
+                <div class="icon">😊</div>
+                <h2>Thanks for Being a Fan!</h2>
+                <p>You've already redeemed both coupons. We appreciate your support!</p>
+
+                <div class="cta-section" style="border-top: none; padding-top: 0;">
+                    <div class="cta-buttons">
+                        <a href="https://guacolicious.com" class="cta-btn menu">
+                            <span class="icon">🌐</span> Visit Our Website
+                        </a>
+                        <a href="https://maps.google.com/?q=100+N+9th+Road+Stroudsburg+PA+18360" target="_blank" class="cta-btn directions">
+                            <span class="icon">📍</span> Get Directions
+                        </a>
+                        <a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w" target="_blank" class="cta-btn order">
+                            <span class="icon">🛒</span> Order Delivery Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="id-discount-note">
+                    <p>🎓 Remember: Students, Military, Veterans, Seniors, Medical Workers & First Responders</p>
+                    <p class="groups">Always get 15% OFF with valid ID!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">GUAC-O-LICIOUS</div>
+        <p class="footer-info">📍 100 N 9th Road, Stroudsburg, PA 18360</p>
+        <p class="footer-info">📞 <a href="tel:4849125218">(484) 912-5218</a></p>
+        <p class="footer-info">🌐 <a href="https://guacolicious.com">www.guacolicious.com</a></p>
+        <p class="footer-info" style="margin-top: 15px; font-size: 12px; opacity: 0.8;">Open 7 Days a Week • Dine-in • Take-out • Delivery</p>
+    </footer>
+
+    <script>
+        // Generate random code
+        function generateCode(prefix) {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let code = prefix + '-';
+            for (let i = 0; i < 5; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+
+        // Format phone number as user types
+        const phoneInput = document.getElementById('phoneInput');
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) value = value.slice(0, 10);
+            
+            if (value.length >= 6) {
+                value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6);
+            } else if (value.length >= 3) {
+                value = '(' + value.slice(0, 3) + ') ' + value.slice(3);
+            } else if (value.length > 0) {
+                value = '(' + value;
+            }
+            e.target.value = value;
+        });
+
+        // Get today's date formatted
+        function getTodayDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date().toLocaleDateString('en-US', options);
+        }
+
+        // Show a specific screen
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Submit form
+        async function submitForm() {
+            const name = document.getElementById('nameInput').value.trim();
+            const phone = phoneInput.value.replace(/\D/g, '');
+            const email = document.getElementById('emailInput').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+            
+            // Validate name
+            if (!name || name.length < 2) {
+                errorMsg.textContent = 'Please enter your name';
+                errorMsg.style.display = 'block';
+                return;
+            }
+            
+            // Validate phone
+            if (phone.length !== 10) {
+                errorMsg.textContent = 'Please enter a valid 10-digit phone number';
+                errorMsg.style.display = 'block';
+                return;
+            }
+            
+            // Validate email
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                errorMsg.textContent = 'Please enter a valid email address';
+                errorMsg.style.display = 'block';
+                return;
+            }
+            
+            errorMsg.style.display = 'none';
+            showScreen('loadingScreen');
+            
+            const today = getTodayDate();
+            
+            try {
+                // REPLACE THIS URL with your Google Apps Script Web App URL
+                const SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+                
+                // Build URL with parameters
+                const url = `${SCRIPT_URL}?phone=${phone}&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (data.visitCount === 1) {
+                    // First visit
+                    document.getElementById('code1').textContent = data.code;
+                    document.getElementById('todayDate1').textContent = today;
+                    showScreen('firstVisitScreen');
+                    
+                } else if (data.visitCount === 2) {
+                    // Second visit
+                    document.getElementById('code2').textContent = data.code;
+                    document.getElementById('todayDate2').textContent = today;
+                    showScreen('secondVisitScreen');
+                    
+                } else {
+                    // Already used both
+                    showScreen('usedScreen');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                // Fallback for demo/testing
+                const code = generateCode('F');
+                document.getElementById('code1').textContent = code;
+                document.getElementById('todayDate1').textContent = today;
+                showScreen('firstVisitScreen');
+            }
+        }
+
+        // Allow Enter key to submit
+        document.querySelectorAll('.input-field').forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    submitForm();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
