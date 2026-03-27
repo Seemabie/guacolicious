@@ -1062,6 +1062,37 @@
             margin-top: 1.5rem;
         }
 
+        /* Floating Coupon Button */
+        .floating-coupon-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--fiesta-red);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Lilita One', cursive;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 3px solid var(--brown);
+            box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            animation: floatPulse 2s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .floating-coupon-btn:hover {
+            background: var(--fiesta-orange);
+            transform: scale(1.05);
+        }
+
+        @keyframes floatPulse {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
         /* Coupon Promo Section */
         .grand-opening-promo {
             padding: 4rem 5%;
@@ -1333,10 +1364,12 @@
     <!-- Announcement Bar -->
     <div class="announcement-bar">
         <p>
-            <span class="sparkle">🎉</span>
-            FIRST TIME? GET 15% OFF YOUR ORDER! 
-            <a href="coupon.html" style="color: var(--fiesta-yellow); text-decoration: underline;">CLAIM YOUR COUPON →</a>
-            <span class="sparkle">🎉</span>
+            <span class="sparkle">🎟️</span>
+            <a href="coupon.html" style="color: white; text-decoration: none;">
+                <strong>NEW CUSTOMERS:</strong> 15% OFF 1st Visit + $5 OFF 2nd Visit! 
+                <span style="color: var(--fiesta-yellow); text-decoration: underline;">GET COUPON →</span>
+            </a>
+            <span class="sparkle">🎟️</span>
         </p>
     </div>
 
@@ -1373,6 +1406,7 @@
             <span class="logo-text">GUAC<span>-O-</span>LICIOUS</span>
         </a>
         <ul class="nav-links">
+            <li><a href="coupon.html" style="color: var(--fiesta-red); font-weight: 800;">🎟️ Coupons</a></li>
             <li><a href="#menu">Menu</a></li>
             <li><a href="#build">Build Your Own</a></li>
             <li><a href="#family">Family Kits</a></li>
@@ -1448,20 +1482,33 @@
     </section>
 
     <!-- Coupon Promo Section -->
-    <section class="grand-opening-promo">
+    <section class="grand-opening-promo" id="offers">
         <div class="promo-container">
-            <div class="promo-badge">🎟️ EXCLUSIVE OFFER 🎟️</div>
+            <div class="promo-badge">🎟️ EXCLUSIVE COUPONS 🎟️</div>
             
-            <div class="promo-main">
-                <div class="promo-free">15% OFF!</div>
-                <div class="promo-subtitle">Your First Order! 🥣🥑🌶️</div>
+            <!-- Two Offers Side by Side -->
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <!-- First Visit Offer -->
+                <div style="background: var(--fiesta-yellow); border: 5px solid var(--brown); border-radius: 20px; padding: 2rem; text-align: center; min-width: 280px; box-shadow: 6px 6px 0 var(--brown);">
+                    <div style="background: var(--fiesta-red); color: white; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.9rem; display: inline-block; margin-bottom: 1rem; border: 2px solid var(--brown);">1ST VISIT</div>
+                    <div style="font-family: 'Lilita One', cursive; font-size: 4rem; color: var(--fiesta-red); text-shadow: 2px 2px 0 var(--brown); line-height: 1;">15% OFF</div>
+                    <div style="font-family: 'Lilita One', cursive; font-size: 1.3rem; color: var(--fiesta-green);">Your Entire Order!</div>
+                </div>
+                
+                <!-- Second Visit Offer -->
+                <div style="background: var(--fiesta-orange); border: 5px solid var(--brown); border-radius: 20px; padding: 2rem; text-align: center; min-width: 280px; box-shadow: 6px 6px 0 var(--brown);">
+                    <div style="background: var(--fiesta-green); color: white; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.9rem; display: inline-block; margin-bottom: 1rem; border: 2px solid var(--brown);">2ND VISIT</div>
+                    <div style="font-family: 'Lilita One', cursive; font-size: 4rem; color: white; text-shadow: 2px 2px 0 var(--brown); line-height: 1;">$5 OFF</div>
+                    <div style="font-family: 'Lilita One', cursive; font-size: 1.3rem; color: var(--fiesta-yellow);">Orders $20 or More!</div>
+                </div>
             </div>
 
+            <!-- How It Works -->
             <div class="promo-details">
                 <div class="promo-detail-box">
                     <div class="icon">📱</div>
                     <div class="label">Step 1</div>
-                    <div class="value">Scan QR or Click Below</div>
+                    <div class="value">Tap "Get Coupon"</div>
                 </div>
                 <div class="promo-detail-box">
                     <div class="icon">✍️</div>
@@ -1471,13 +1518,17 @@
                 <div class="promo-detail-box">
                     <div class="icon">🎉</div>
                     <div class="label">Step 3</div>
-                    <div class="value">Get Your Code!</div>
+                    <div class="value">Show Code to Cashier</div>
                 </div>
             </div>
 
             <a href="coupon.html" class="promo-cta">🎟️ GET MY COUPON!</a>
             
-            <p style="color: rgba(255,255,255,0.8); margin-top: 1.5rem; font-size: 0.95rem;">Plus: Come back for your 2nd visit and get <strong style="color: var(--fiesta-yellow);">$5 OFF</strong> on orders $20+!</p>
+            <!-- Important Info -->
+            <div style="margin-top: 2rem; background: rgba(0,0,0,0.2); border-radius: 15px; padding: 1.25rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                <p style="color: white; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem;">📍 Valid for IN-PERSON orders only</p>
+                <p style="color: var(--fiesta-yellow); font-weight: 800; font-size: 0.95rem;">⏰ Coupons valid for 6 months from issue date</p>
+            </div>
         </div>
     </section>
 
@@ -2098,6 +2149,14 @@
                     </ul>
                 </div>
                 <div class="footer-col">
+                    <h4>Coupons</h4>
+                    <ul>
+                        <li><a href="coupon.html" style="color: var(--fiesta-yellow);">🎟️ Get Coupon</a></li>
+                        <li><a href="#offers">15% Off 1st Visit</a></li>
+                        <li><a href="#offers">$5 Off 2nd Visit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:484-912-5218">484-912-5218</a></li>
@@ -2111,5 +2170,10 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Coupon Button -->
+    <a href="coupon.html" class="floating-coupon-btn">
+        🎟️ Get Coupon
+    </a>
 </body>
 </html>

@@ -17,16 +17,19 @@
             --brown: #5D3A1A;
             --cream: #FFFDF5;
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Nunito', sans-serif;
             background: var(--cream);
             color: var(--brown);
         }
+
         .navbar {
             background: rgba(255,253,245,0.98);
             padding: 12px 5%;
@@ -39,12 +42,14 @@
             top: 0;
             z-index: 100;
         }
+
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
             text-decoration: none;
         }
+
         .logo-avocado {
             width: 45px;
             height: 45px;
@@ -56,20 +61,24 @@
             font-size: 22px;
             border: 3px solid var(--brown);
         }
+
         .logo-text {
             font-family: 'Lilita One', cursive;
             font-size: 22px;
             color: var(--green);
             text-shadow: 1px 1px 0 var(--yellow);
         }
+
         .logo-text span {
             color: var(--red);
         }
+
         .nav-links {
             display: flex;
             gap: 25px;
             list-style: none;
         }
+
         .nav-links a {
             color: var(--brown);
             text-decoration: none;
@@ -78,9 +87,11 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
         .nav-links a:hover {
             color: var(--red);
         }
+
         .nav-order-btn {
             background: var(--red);
             color: white;
@@ -91,14 +102,17 @@
             text-decoration: none;
             border: 2px solid var(--brown);
         }
+
         .nav-order-btn:hover {
             background: var(--orange);
         }
+
         .hero {
             background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
             padding: 40px 5%;
             text-align: center;
         }
+
         .hero h1 {
             font-family: 'Lilita One', cursive;
             font-size: 36px;
@@ -106,22 +120,27 @@
             text-shadow: 2px 2px 0 var(--brown);
             margin-bottom: 8px;
         }
+
         .hero p {
             color: var(--yellow);
             font-size: 16px;
             font-weight: 700;
         }
+
         .main-content {
             max-width: 500px;
             margin: 0 auto;
             padding: 30px 20px;
         }
+
         .screen {
             display: none;
         }
+
         .screen.active {
             display: block;
         }
+
         .card {
             background: white;
             border-radius: 20px;
@@ -129,6 +148,7 @@
             border: 3px solid var(--brown);
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
+
         .input-screen h2 {
             font-family: 'Lilita One', cursive;
             font-size: 26px;
@@ -136,15 +156,18 @@
             text-align: center;
             margin-bottom: 8px;
         }
+
         .input-screen .subtitle {
             text-align: center;
             color: var(--brown);
             margin-bottom: 25px;
             font-size: 15px;
         }
+
         .input-group {
             margin-bottom: 18px;
         }
+
         .input-group label {
             display: block;
             font-weight: 700;
@@ -152,9 +175,11 @@
             margin-bottom: 8px;
             font-size: 14px;
         }
+
         .input-group label .required {
             color: var(--red);
         }
+
         .input-field {
             width: 100%;
             padding: 14px 18px;
@@ -164,11 +189,13 @@
             font-family: 'Nunito', sans-serif;
             font-weight: 600;
         }
+
         .input-field:focus {
             outline: none;
             border-color: var(--green);
             box-shadow: 0 0 0 3px rgba(34,139,34,0.2);
         }
+
         .email-incentive {
             background: linear-gradient(135deg, #FFF9E6 0%, #FFFEF5 100%);
             border: 2px solid var(--yellow);
@@ -178,9 +205,11 @@
             font-size: 13px;
             color: var(--brown);
         }
+
         .email-incentive strong {
             color: var(--green);
         }
+
         .submit-btn {
             width: 100%;
             padding: 16px;
@@ -194,10 +223,12 @@
             box-shadow: 4px 4px 0 var(--brown);
             margin-top: 10px;
         }
+
         .submit-btn:hover {
             transform: translate(2px, 2px);
             box-shadow: 2px 2px 0 var(--brown);
         }
+
         .error-msg {
             color: var(--red);
             text-align: center;
@@ -205,10 +236,12 @@
             font-weight: 700;
             display: none;
         }
+
         .loading {
             text-align: center;
             padding: 50px;
         }
+
         .spinner {
             width: 50px;
             height: 50px;
@@ -218,12 +251,15 @@
             animation: spin 1s linear infinite;
             margin: 0 auto 20px;
         }
+
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
         .coupon-screen {
             text-align: center;
         }
+
         .coupon-badge {
             background: var(--yellow);
             color: var(--brown);
@@ -235,10 +271,12 @@
             margin-bottom: 15px;
             border: 2px solid var(--brown);
         }
+
         .coupon-badge.returning {
             background: var(--orange);
             color: white;
         }
+
         .discount-display {
             background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
             border-radius: 20px;
@@ -246,6 +284,7 @@
             margin-bottom: 20px;
             border: 4px solid var(--brown);
         }
+
         .discount-amount {
             font-family: 'Lilita One', cursive;
             font-size: 58px;
@@ -253,17 +292,20 @@
             text-shadow: 3px 3px 0 var(--brown);
             line-height: 1;
         }
+
         .discount-label {
             font-family: 'Lilita One', cursive;
             font-size: 22px;
             color: var(--yellow);
         }
+
         .discount-condition {
             color: rgba(255,255,255,0.9);
             font-size: 14px;
             margin-top: 8px;
             font-weight: 600;
         }
+
         .code-section {
             background: #f8f8f8;
             border: 3px dashed var(--brown);
@@ -271,12 +313,14 @@
             padding: 20px;
             margin-bottom: 20px;
         }
+
         .code-label {
             font-size: 14px;
             color: var(--brown);
             font-weight: 700;
             margin-bottom: 10px;
         }
+
         .code-display {
             font-family: 'Courier New', monospace;
             font-size: 36px;
@@ -289,11 +333,13 @@
             border: 3px solid var(--brown);
             display: inline-block;
         }
+
         .code-type {
             font-size: 12px;
             color: #666;
             margin-top: 8px;
         }
+
         .show-cashier {
             background: var(--red);
             color: white;
@@ -305,27 +351,32 @@
             border: 3px solid var(--brown);
             display: inline-block;
         }
+
         .valid-info {
             font-size: 12px;
             color: #888;
             margin-bottom: 20px;
         }
+
         .cta-section {
             margin-top: 25px;
             padding-top: 25px;
             border-top: 2px solid #eee;
         }
+
         .cta-title {
             font-family: 'Lilita One', cursive;
             font-size: 18px;
             color: var(--green);
             margin-bottom: 15px;
         }
+
         .cta-buttons {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
+
         .cta-btn {
             display: flex;
             align-items: center;
@@ -338,36 +389,44 @@
             text-decoration: none;
             border: 3px solid var(--brown);
         }
+
         .cta-btn.menu {
             background: var(--green);
             color: white;
         }
+
         .cta-btn.directions {
             background: var(--yellow);
             color: var(--brown);
         }
+
         .cta-btn.order {
             background: var(--red);
             color: white;
         }
+
         .cta-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+
         .used-screen .icon {
             font-size: 60px;
             margin-bottom: 15px;
         }
+
         .used-screen h2 {
             font-family: 'Lilita One', cursive;
             color: var(--brown);
             font-size: 24px;
             margin-bottom: 10px;
         }
+
         .used-screen p {
             color: #666;
             margin-bottom: 20px;
         }
+
         .id-discount-note {
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
             border-radius: 12px;
@@ -376,16 +435,19 @@
             text-align: center;
             border: 3px solid var(--brown);
         }
+
         .id-discount-note p {
             color: white;
             font-size: 13px;
             margin-bottom: 5px;
         }
+
         .id-discount-note .groups {
             color: var(--yellow);
             font-weight: 800;
             font-size: 11px;
         }
+
         .cashier-note {
             background: #fff3cd;
             border: 2px solid #ffc107;
@@ -396,6 +458,7 @@
             color: #856404;
             text-align: left;
         }
+
         .menu-preview {
             margin-top: 30px;
             padding: 25px;
@@ -403,6 +466,7 @@
             border-radius: 20px;
             border: 3px solid var(--brown);
         }
+
         .menu-preview h3 {
             font-family: 'Lilita One', cursive;
             font-size: 22px;
@@ -410,14 +474,17 @@
             text-align: center;
             margin-bottom: 20px;
         }
+
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
         }
+
         .menu-item {
             text-align: center;
         }
+
         .menu-item img {
             width: 100%;
             height: 80px;
@@ -425,12 +492,14 @@
             border-radius: 10px;
             border: 2px solid var(--brown);
         }
+
         .menu-item p {
             font-size: 11px;
             font-weight: 700;
             color: var(--brown);
             margin-top: 5px;
         }
+
         .footer {
             background: var(--brown);
             color: white;
@@ -438,26 +507,40 @@
             text-align: center;
             margin-top: 40px;
         }
+
         .footer-logo {
             font-family: 'Lilita One', cursive;
             font-size: 24px;
             color: var(--yellow);
             margin-bottom: 15px;
         }
+
         .footer-info {
             font-size: 14px;
             margin-bottom: 8px;
         }
+
         .footer-info a {
             color: var(--yellow);
             text-decoration: none;
         }
+
         @media (max-width: 600px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 28px; }
-            .discount-amount { font-size: 48px; }
-            .code-display { font-size: 28px; }
-            .menu-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .discount-amount {
+                font-size: 48px;
+            }
+            .code-display {
+                font-size: 28px;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -481,7 +564,7 @@
 
     <div class="main-content">
         <div id="inputScreen" class="screen active">
-            <div class="card input-screen">
+            <div class="card">
                 <h2>Claim Your Coupon!</h2>
                 <p class="subtitle">Enter your info to receive your exclusive discount code</p>
                 
@@ -511,6 +594,10 @@
                     <p>🎓 Students, Military, Veterans, Seniors, Medical Workers & First Responders</p>
                     <p class="groups">Always get 15% OFF with valid ID — no coupon needed!</p>
                 </div>
+                
+                <div style="margin-top: 15px; padding: 12px; background: #f5f5f5; border-radius: 10px; font-size: 12px; color: #666; text-align: center;">
+                    📍 <strong>In-person orders only</strong> • ⏰ Valid for <strong>6 months</strong> from issue date
+                </div>
             </div>
         </div>
 
@@ -538,10 +625,16 @@
                 
                 <div class="show-cashier">📱 SHOW THIS TO CASHIER</div>
                 
-                <div class="valid-info">Valid today • <span id="todayDate1"></span></div>
+                <div class="valid-info">Valid for 6 months • In-person orders only • <span id="todayDate1"></span></div>
 
                 <div class="cashier-note">
                     <strong>📋 For Cashier:</strong> Code starts with "F" → Apply <strong>15% Off</strong> discount
+                </div>
+
+                <!-- 2nd Visit Reminder -->
+                <div style="background: linear-gradient(135deg, #FF6B35 0%, #FF8C00 100%); border-radius: 12px; padding: 15px; margin-top: 15px; text-align: center; border: 3px solid var(--brown);">
+                    <p style="color: white; font-weight: 800; font-size: 14px; margin: 0;">🎁 COME BACK SOON!</p>
+                    <p style="color: white; font-size: 13px; margin-top: 5px;">Your <strong style="color: #FFD700;">2nd visit</strong> earns you <strong style="color: #FFD700;">$5 OFF</strong> on orders $20+!</p>
                 </div>
 
                 <div class="cta-section">
@@ -558,27 +651,27 @@
                 <h3>🔥 Our Most Popular Items</h3>
                 <div class="menu-grid">
                     <div class="menu-item">
-                        <img src="https://guacolicious.com/burrito-bowl.jpg" alt="Burrito Bowl">
+                        <img src="https://guacolicious.com/burrito-bowl.jpg" alt="Burrito Bowl" onerror="this.style.background='#228B22'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.alt='🥣';">
                         <p>Burrito Bowls</p>
                     </div>
                     <div class="menu-item">
-                        <img src="https://guacolicious.com/tacos-loaded.jpg" alt="Tacos">
+                        <img src="https://guacolicious.com/tacos-loaded.jpg" alt="Tacos" onerror="this.style.background='#C41E3A';">
                         <p>Loaded Tacos</p>
                     </div>
                     <div class="menu-item">
-                        <img src="https://guacolicious.com/quesadilla.jpg" alt="Quesadilla">
+                        <img src="https://guacolicious.com/quesadilla.jpg" alt="Quesadilla" onerror="this.style.background='#FFD700';">
                         <p>Quesadillas</p>
                     </div>
                     <div class="menu-item">
-                        <img src="https://guacolicious.com/birria-tacos.png" alt="Birria">
+                        <img src="https://guacolicious.com/birria-tacos.png" alt="Birria" onerror="this.style.background='#FF6B35';">
                         <p>Birria Tacos</p>
                     </div>
                     <div class="menu-item">
-                        <img src="https://guacolicious.com/loaded-nachos.jpg" alt="Nachos">
+                        <img src="https://guacolicious.com/loaded-nachos.jpg" alt="Nachos" onerror="this.style.background='#228B22';">
                         <p>Loaded Nachos</p>
                     </div>
                     <div class="menu-item">
-                        <img src="https://guacolicious.com/churros.png" alt="Churros">
+                        <img src="https://guacolicious.com/churros.png" alt="Churros" onerror="this.style.background='#5D3A1A';">
                         <p>Churros</p>
                     </div>
                 </div>
@@ -603,7 +696,7 @@
                 
                 <div class="show-cashier">📱 SHOW THIS TO CASHIER</div>
                 
-                <div class="valid-info">Valid today • <span id="todayDate2"></span></div>
+                <div class="valid-info">Valid for 6 months • In-person orders only • <span id="todayDate2"></span></div>
 
                 <div class="cashier-note">
                     <strong>📋 For Cashier:</strong> Code starts with "S" → Apply <strong>$5 Off</strong> discount (orders $20+)
@@ -651,11 +744,11 @@
     </footer>
 
     <script>
-        var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwqcBc3k1zTyhvpbPqgjdv2WECK2-nIQC-RbX0IWBml3q9TPgl-Od9YxIlsEeS4-w8NTQ/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwqcBc3k1zTyhvpbPqgjdv2WECK2-nIQC-RbX0IWBml3q9TPgl-Od9YxIlsEeS4-w8NTQ/exec';
 
-        var phoneInput = document.getElementById('phoneInput');
+        const phoneInput = document.getElementById('phoneInput');
         phoneInput.addEventListener('input', function(e) {
-            var value = e.target.value.replace(/\D/g, '');
+            let value = e.target.value.replace(/\D/g, '');
             if (value.length > 10) value = value.slice(0, 10);
             if (value.length >= 6) {
                 value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6);
@@ -668,24 +761,21 @@
         });
 
         function getTodayDate() {
-            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             return new Date().toLocaleDateString('en-US', options);
         }
 
         function showScreen(screenId) {
-            var screens = document.querySelectorAll('.screen');
-            for (var i = 0; i < screens.length; i++) {
-                screens[i].classList.remove('active');
-            }
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function submitForm() {
-            var name = document.getElementById('nameInput').value.trim();
-            var phone = phoneInput.value.replace(/\D/g, '');
-            var email = document.getElementById('emailInput').value.trim();
-            var errorMsg = document.getElementById('errorMsg');
+            const name = document.getElementById('nameInput').value.trim();
+            const phone = phoneInput.value.replace(/\D/g, '');
+            const email = document.getElementById('emailInput').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
             
             if (!name || name.length < 2) {
                 errorMsg.textContent = 'Please enter your name';
@@ -699,7 +789,7 @@
                 return;
             }
             
-            if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+            if (!email || !email.includes('@') || !email.includes('.')) {
                 errorMsg.textContent = 'Please enter a valid email address';
                 errorMsg.style.display = 'block';
                 return;
@@ -708,8 +798,8 @@
             errorMsg.style.display = 'none';
             showScreen('loadingScreen');
             
-            var today = getTodayDate();
-            var url = SCRIPT_URL + '?phone=' + phone + '&name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email);
+            const today = getTodayDate();
+            const url = SCRIPT_URL + '?phone=' + phone + '&name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email);
             
             fetch(url)
                 .then(function(response) {
@@ -736,14 +826,13 @@
                 });
         }
 
-        var inputs = document.querySelectorAll('.input-field');
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].addEventListener('keypress', function(e) {
+        document.querySelectorAll('.input-field').forEach(function(input) {
+            input.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     submitForm();
                 }
             });
-        }
+        });
     </script>
 </body>
 </html>
