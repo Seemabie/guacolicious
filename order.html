@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Pickup | Guac-O-Licious</title>
+    <meta name="description" content="Order pickup online from Guac-O-Licious in Stroudsburg, PA.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="topbar">
+        <strong>100% HALAL</strong>
+        <span class="pipe">|</span>
+        <strong>10% OFF ALWAYS</strong>
+        for Students, Military, Veterans, Seniors 60+, Medical Workers & First Responders
+    </div>
+
+    <header class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">GUAC<span class="dot">.</span>O<span class="dot">.</span>LICIOUS</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="build.html">Build Your Own</a></li>
+                    <li><a href="family.html">Family Kits</a></li>
+                    <li><a href="ingredients.html">Ingredients</a></li>
+                    <li><a href="contact.html">Visit</a></li>
+                </ul>
+            </nav>
+            <a href="order.html" class="btn btn-primary active-cta">Order Pickup</a>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="page-head" style="padding-bottom: 16px;">
+        <span class="eyebrow">Order Pickup</span>
+        <h1>Order online for in-store pickup.</h1>
+        <p>Build your order, tell us when you'll come grab it, and we'll have it ready at 100 N 9th Street, Stroudsburg.</p>
+    </div>
+
+    <main class="order-wrap" id="orderApp">
+
+        <section class="order-main">
+            <div class="pickup-notice">
+                <strong>Pickup only.</strong>
+                <span>For delivery, use Uber Eats, Grubhub or DoorDash.</span>
+            </div>
+
+            <div class="cat-tabs" id="catTabs"></div>
+            <div class="item-grid" id="itemGrid"></div>
+        </section>
+
+        <aside class="cart-aside">
+            <div class="cart-card" id="cartCard">
+                <!-- rendered by JS -->
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Item modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <!-- rendered by JS -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="brand-block">
+                <div class="brand">GUAC<span class="dot">.</span>O<span class="dot">.</span>LICIOUS</div>
+                <p>Fresh, healthy, 100% halal Mexican grill serving Stroudsburg, PA. Made fresh daily with premium ingredients.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="build.html">Build Your Own</a></li>
+                    <li><a href="family.html">Family Kits</a></li>
+                    <li><a href="ingredients.html">Ingredients</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Order</h4>
+                <ul>
+                    <li><a href="order.html">Pickup Online</a></li>
+                    <li><a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w" target="_blank" rel="noopener">Uber Eats</a></li>
+                    <li><a href="https://www.grubhub.com" target="_blank" rel="noopener">Grubhub</a></li>
+                    <li><a href="https://www.doordash.com" target="_blank" rel="noopener">DoorDash</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Visit</h4>
+                <ul>
+                    <li>100 N 9th Street</li>
+                    <li>Stroudsburg, PA 18360</li>
+                    <li><a href="tel:484-912-5218">484 912 5218</a></li>
+                    <li>Open 7 days a week</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Guac-O-Licious. All rights reserved.</span>
+            <span>Fresh & Healthy Mexican Grill</span>
+        </div>
+    </footer>
+
+    <script>
+    /* =====================================================
+       Menu data, derived from inventory export.
+       Each item can declare modifier groups.
+       ===================================================== */
+    const PROTEIN_FREE = [
+        "Grilled Chicken","Honey Chicken","Jerk Chicken","Grilled Steak",
+        "Grilled Shrimp","Tofu","Impossible Meat","Beef Barbacoa",
+        "Shredded Chicken","Ground Beef"
+    ].map(n => ({ name: n, price: 0 }));
+
+    const PROTEIN_PRICED = [
+        { name: "Grilled Chicken", price: 12.95 },
+        { name: "Honey Chipotle", price: 13.95 },
+        { name: "Jerk Chicken", price: 13.95 },
+        { name: "Grilled Steak", price: 13.95 },
+        { name: "Ground Beef", price: 13.95 },
+        { name: "Grilled Shrimp", price: 13.95 },
+        { name: "Beef Barbacoa", price: 13.95 },
+        { name: "Shredded Chicken", price: 13.95 },
+        { name: "Veggie Fajita w/ Guac", price: 11.95 },
+        { name: "Tofu", price: 11.95 },
+        { name: "Impossible Meat", price: 11.95 },
+        { name: "Cauliflower", price: 11.95 }
+    ];
+
+    const SAUCES = [
+        "Chipotle","Mango","Limon","Sour Cream","Guacado","Smoky Habanero"
+    ].map(n => ({ name: n, price: 0 }));
+
+    const TOPPING_EXTRAS = [
+        { name: "Fresh Guac", price: 1.95 },
+        { name: "Extra Sauce", price: 0.50 },
+        { name: "Extra Topping", price: 0.50 },
+        { name: "Extra Tortilla", price: 0.99 }
+    ];
+
+    const MENU = {
+        "Tacos": [
+            { id:"birria-chk", name:"Birria Tacos – Chicken",
+              desc:"Slow braised chicken on griddled tortillas, served with consomé.",
+              img:"NEW_Food_Images/birria-tacos.jpg",
+              from: 11.95,
+              mods:[
+                { id:"size", label:"Choose Size", required:true, max:1, options:[
+                    {name:"2 Piece", price:11.95},
+                    {name:"3 Piece", price:15.95},
+                    {name:"Pie (shareable)", price:30.95}
+                ]},
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]
+            },
+            { id:"birria-beef", name:"Birria Tacos – Beef",
+              desc:"Slow braised beef on griddled tortillas, served with consomé.",
+              img:"NEW_Food_Images/birria-tacos.jpg",
+              from: 11.95,
+              mods:[
+                { id:"size", label:"Choose Size", required:true, max:1, options:[
+                    {name:"2 Piece", price:11.95},
+                    {name:"3 Piece", price:15.95},
+                    {name:"Pie (shareable)", price:30.95}
+                ]},
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]
+            },
+            { id:"soft-tacos", name:"Soft Tacos",
+              desc:"Soft flour tortillas with one protein and your toppings.",
+              img:"NEW_Food_Images/tacos-soft.jpg",
+              from: 11.95,
+              mods:[
+                { id:"size", label:"Choose Size", required:true, max:1, options:[
+                    {name:"2 Piece", price:11.95}, {name:"3 Piece", price:15.95}
+                ]},
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_FREE },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]
+            },
+            { id:"crispy-tacos", name:"Crispy Tacos",
+              desc:"Crunchy corn shells with one protein and your toppings.",
+              img:"NEW_Food_Images/crispy-tacos.jpg",
+              from: 11.95,
+              mods:[
+                { id:"size", label:"Choose Size", required:true, max:1, options:[
+                    {name:"2 Piece", price:11.95}, {name:"3 Piece", price:15.95}
+                ]},
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_FREE },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]
+            }
+        ],
+        "Build Your Own": [
+            { id:"byo-bowl", name:"Bowl", desc:"Rice, beans, protein, salsa and toppings in a bowl.", img:"NEW_Food_Images/burrito-bowl.jpg", from: 11.95,
+              mods:[
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_PRICED },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]},
+            { id:"byo-burrito", name:"Burrito", desc:"Flour tortilla wrapped around rice, beans, protein and toppings.", img:"NEW_Food_Images/burrito-chicken.jpg", from: 11.95,
+              mods:[
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_PRICED },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]},
+            { id:"byo-quesadilla", name:"Quesadilla", desc:"Griddled flour tortilla with melted cheese and protein.", img:"NEW_Food_Images/quesadilla.jpg", from: 11.95,
+              mods:[
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_PRICED },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]},
+            { id:"byo-crunchwrap", name:"Crunch Wrap", desc:"Crispy tostada layered with protein, cheese and salsa.", img:"NEW_Food_Images/crunchwrap.jpg", from: 11.95,
+              mods:[
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_PRICED },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]},
+            { id:"byo-nachos", name:"Nachos", desc:"House chips loaded with cheese, beans, protein and toppings.", img:"NEW_Food_Images/loaded-nachos.jpg", from: 11.95,
+              mods:[
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_PRICED },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]},
+            { id:"byo-salad", name:"Salad", desc:"Mixed greens, fajita veggies, protein and a light dressing.", img:"NEW_Food_Images/salad-bowl.jpg", from: 11.95,
+              mods:[
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_PRICED },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]},
+            { id:"byo-tacosalad", name:"Taco Salad", desc:"Crispy tortilla bowl with greens, protein, beans and salsa.", img:"NEW_Food_Images/taco-salad.jpg", from: 11.95,
+              mods:[
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_PRICED },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]},
+            { id:"byo-fries", name:"Fries", desc:"Loaded fries with protein, cheese sauce and salsa.", img:"NEW_Food_Images/chips.jpg", from: 11.95,
+              mods:[
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_PRICED },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]}
+        ],
+        "Specials": [
+            { id:"tostada", name:"Tostada", desc:"Crispy shell with black beans, pico, cheese, guac, lettuce and sauce.", img:"NEW_Food_Images/tostada.jpg", from:8.95,
+              base: 8.95,
+              mods:[
+                { id:"protein", label:"Choose Protein", required:true, max:1, options:PROTEIN_FREE },
+                { id:"sauce", label:"Homemade Sauce (pick up to 3)", required:false, max:3, options:SAUCES },
+                { id:"extras", label:"Extras", required:false, max:null, options:TOPPING_EXTRAS }
+              ]}
+        ],
+        "Kids Meals": [
+            { id:"kids-quesa", name:"Kids Cheese Quesadilla", desc:"Griddled tortilla with melted cheese. Comes with milk or water.", img:"NEW_Food_Images/quesadilla.jpg", from:8.95,
+              base:8.95,
+              mods:[
+                { id:"drink", label:"Drink", required:true, max:1, options:[{name:"Organic Milk",price:0},{name:"Water",price:0}] }
+              ]},
+            { id:"kids-soft", name:"Kids Soft Tacos", desc:"Two soft tortillas with meat or guac and two toppings. Comes with milk or water.", img:"NEW_Food_Images/tacos-soft.jpg", from:8.95,
+              base:8.95,
+              mods:[
+                { id:"main", label:"Main", required:true, max:1, options:[{name:"Meat",price:0},{name:"Guac",price:0}] },
+                { id:"protein", label:"If Meat, Choose Protein", required:false, max:1, options:PROTEIN_FREE },
+                { id:"drink", label:"Drink", required:true, max:1, options:[{name:"Organic Milk",price:0},{name:"Water",price:0}] }
+              ]},
+            { id:"kids-crispy", name:"Kids Crispy Tacos", desc:"Two crispy tortillas with meat or guac and two toppings. Comes with milk or water.", img:"NEW_Food_Images/crispy-tacos.jpg", from:8.95,
+              base:8.95,
+              mods:[
+                { id:"main", label:"Main", required:true, max:1, options:[{name:"Meat",price:0},{name:"Guac",price:0}] },
+                { id:"protein", label:"If Meat, Choose Protein", required:false, max:1, options:PROTEIN_FREE },
+                { id:"drink", label:"Drink", required:true, max:1, options:[{name:"Organic Milk",price:0},{name:"Water",price:0}] }
+              ]}
+        ],
+        "Sides": [
+            { id:"chips", name:"Chips", desc:"House-made crispy tortilla chips.", img:"NEW_Food_Images/chips.jpg", base:2.95 },
+            { id:"avo-fries", name:"Avocado Fries", desc:"Crispy fried avocado wedges.", img:"NEW_Food_Images/chips.jpg", base:4.95 },
+            { id:"fries", name:"Fries Dipper", desc:"Seasoned crispy fries.", img:"NEW_Food_Images/chips.jpg", base:4.95 },
+            { id:"nacho-fries", name:"Nacho Cheese Fries", desc:"Fries smothered in warm queso.", img:"NEW_Food_Images/chips-queso.jpg", base:6.95 },
+            { id:"tortilla-side", name:"Tortilla On Side", desc:"One extra tortilla.", img:"NEW_Food_Images/tortillas.jpg", base:0.95 },
+            { id:"rice-beans", name:"Rice & Beans", desc:"Seasoned rice with black or pinto beans.", img:"NEW_Food_Images/burrito-bowl.jpg", base:4.95 },
+            { id:"guac-sm", name:"Guacamole (Small)", desc:"Fresh guacamole, made daily.", img:"NEW_Food_Images/guacamole.jpg", base:3.95 },
+            { id:"guac-lg", name:"Guacamole (Large)", desc:"Fresh guacamole, made daily.", img:"NEW_Food_Images/guacamole.jpg", base:6.95 },
+            { id:"queso-sm", name:"Queso (4 oz)", desc:"Warm white queso blanco.", img:"NEW_Food_Images/queso-blanco.jpg", base:3.95 },
+            { id:"queso-lg", name:"Queso (8 oz)", desc:"Warm white queso blanco.", img:"NEW_Food_Images/queso-blanco.jpg", base:6.95 },
+            { id:"salsa-sm", name:"Salsa (4 oz)", desc:"Choose roja, verde, pico or corn.", img:"NEW_Food_Images/salsa-roja.jpg", base:2.95 },
+            { id:"salsa-lg", name:"Salsa (8 oz)", desc:"Choose roja, verde, pico or corn.", img:"NEW_Food_Images/salsa-roja.jpg", base:5.45 },
+            { id:"chips-guac-sm", name:"Chips & Guac (Small)", desc:"House chips with fresh guacamole.", img:"NEW_Food_Images/chips-guacamole.jpg", base:6.45 },
+            { id:"chips-guac-lg", name:"Chips & Guac (Large)", desc:"House chips with fresh guacamole.", img:"NEW_Food_Images/chips-guacamole.jpg", base:8.95 },
+            { id:"chips-queso-sm", name:"Chips & Queso (Small)", desc:"House chips with warm queso.", img:"NEW_Food_Images/chips-queso.jpg", base:6.45 },
+            { id:"chips-queso-lg", name:"Chips & Queso (Large)", desc:"House chips with warm queso.", img:"NEW_Food_Images/chips-queso.jpg", base:8.95 },
+            { id:"chips-salsa-sm", name:"Chips & Salsa (Small)", desc:"House chips with fresh salsa.", img:"NEW_Food_Images/chips-salsa-roja.jpg", base:5.45 },
+            { id:"chips-salsa-lg", name:"Chips & Salsa (Large)", desc:"House chips with fresh salsa.", img:"NEW_Food_Images/chips-salsa-roja.jpg", base:7.45 }
+        ],
+        "Drinks": [
+            { id:"bottle", name:"Bottle Drink", desc:"Assorted bottled drinks.", img:"NEW_Food_Images/chips-bag.jpg", base:2.95 },
+            { id:"water", name:"Water", desc:"Bottled water.", img:"NEW_Food_Images/chips-bag.jpg", base:1.95 },
+            { id:"tractor", name:"Organic Tractor Tea", desc:"Organic tea, lightly sweet.", img:"NEW_Food_Images/chips-bag.jpg", base:4.95 },
+            { id:"lemonade", name:"Organic Lemonade", desc:"Organic lemonade, freshly poured.", img:"NEW_Food_Images/chips-bag.jpg", base:4.95 },
+            { id:"shake", name:"Shake", desc:"Hand-spun shake.", img:"NEW_Food_Images/tres-leches.jpg", base:4.95,
+              mods:[
+                { id:"flavor", label:"Flavor", required:true, max:1, options:[
+                  {name:"Vanilla",price:0},{name:"Chocolate",price:0},
+                  {name:"Strawberry",price:0},{name:"Oreo",price:0}
+                ]}
+              ]}
+        ],
+        "Desserts": [
+            { id:"churros", name:"Churros", desc:"Crisp cinnamon-sugar churros, with your choice of dip.", img:"NEW_Food_Images/churros.jpg", base:3.95,
+              mods:[
+                { id:"dip", label:"Choose Dip", required:true, max:1, options:[
+                    {name:"Dulce de Leche",price:0},{name:"Cream Cheese",price:0}
+                ]}
+              ]},
+            { id:"tres", name:"Tres Leches Cake", desc:"Light sponge soaked in three milks, topped with cream.", img:"NEW_Food_Images/tres-leches.jpg", base:4.95 },
+            { id:"plant", name:"Plantains", desc:"Sweet pan-fried plantains.", img:"NEW_Food_Images/churros.jpg", base:3.95 }
+        ],
+        "Family Kits": [
+            { id:"kit-taco", name:"Taco Kit – Feeds 4 to 6", desc:"12 soft corn tortillas, two proteins, pico, salsa, rice, beans, lettuce, cheese, sour cream.", img:"NEW_Food_Images/tacos-soft.jpg", base:49.95 },
+            { id:"kit-nacho", name:"Nacho Kit – Feeds 4 to 6", desc:"Chips, two proteins, two queso, two pico, salsa, beans, jalapeños, sour cream.", img:"NEW_Food_Images/loaded-nachos.jpg", base:49.95 },
+            { id:"kit-fajita", name:"Fajita Kit – Feeds 4 to 6", desc:"12 soft corn tortillas, two proteins, fajita veggies, guac, pico, salsa, rice, beans, cheese, sour cream.", img:"NEW_Food_Images/burrito-bowl-drizzle.jpg", base:55.95 }
+        ]
+    };
+
+    const TAX_RATE = 0.08875;
+
+    /* ============ STATE ============ */
+    let activeCat = "Tacos";
+    let cart = [];
+    let editingItem = null;
+    let editingSelections = {};
+
+    /* ============ UTIL ============ */
+    const $ = id => document.getElementById(id);
+    const money = n => "$" + n.toFixed(2);
+    const uid = () => Math.random().toString(36).slice(2,8) + Date.now().toString(36).slice(-3);
+
+    /* ============ RENDER CATEGORIES ============ */
+    function renderTabs() {
+        const tabs = $("catTabs");
+        tabs.innerHTML = "";
+        Object.keys(MENU).forEach(cat => {
+            const btn = document.createElement("button");
+            btn.className = "cat-tab" + (cat === activeCat ? " active" : "");
+            btn.textContent = cat;
+            btn.onclick = () => { activeCat = cat; renderTabs(); renderItems(); };
+            tabs.appendChild(btn);
+        });
+    }
+
+    function renderItems() {
+        const grid = $("itemGrid");
+        grid.innerHTML = "";
+        (MENU[activeCat] || []).forEach(item => {
+            const card = document.createElement("button");
+            card.className = "item-card";
+            card.innerHTML = `
+                <div class="pic"><img src="${item.img}" alt="${item.name}" loading="lazy"></div>
+                <div class="meta">
+                    <div class="ttl">${item.name}</div>
+                    <div class="desc">${item.desc}</div>
+                    <div class="from">${item.mods ? "From " : ""}${money(item.from ?? item.base)}</div>
+                </div>`;
+            card.onclick = () => openModal(item);
+            grid.appendChild(card);
+        });
+    }
+
+    /* ============ MODAL ============ */
+    function openModal(item) {
+        editingItem = item;
+        editingSelections = {};
+
+        const groups = item.mods || [];
+        let html = `
+            <img src="${item.img}" class="modal-img" alt="${item.name}">
+            <div class="modal-body">
+                <h2>${item.name}</h2>
+                <p class="desc">${item.desc}</p>
+        `;
+        groups.forEach((g, gi) => {
+            const type = g.max === 1 ? "radio" : "checkbox";
+            html += `<div class="mod-group" data-gid="${g.id}">
+                <h4>${g.label}${g.required ? " *" : ""}</h4>`;
+            if (g.max && g.max > 1) html += `<div class="mod-hint">Pick up to ${g.max}.</div>`;
+            g.options.forEach((opt, oi) => {
+                const priceLabel = opt.price > 0 ? "+" + money(opt.price) : "";
+                html += `
+                    <label class="mod-option" data-gid="${g.id}" data-name="${opt.name}" data-price="${opt.price}">
+                        <span class="label">
+                            <input type="${type}" name="mod-${g.id}" value="${oi}" data-gid="${g.id}" data-oi="${oi}">
+                            ${opt.name}
+                        </span>
+                        <span class="price">${priceLabel}</span>
+                    </label>`;
+            });
+            html += `<div class="mod-error" data-gid="${g.id}">Required.</div></div>`;
+        });
+        html += `
+            <div class="modal-foot">
+                <button class="modal-close" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="addToCart()">Add to Order</button>
+            </div></div>`;
+        $("modal").innerHTML = html;
+        $("modalOverlay").classList.add("show");
+
+        $("modal").querySelectorAll(".mod-option").forEach(opt => {
+            opt.addEventListener("click", e => {
+                if (e.target.tagName === "INPUT") return;
+                const inp = opt.querySelector("input");
+                if (inp.type === "radio") {
+                    inp.checked = true;
+                    opt.parentElement.querySelectorAll(".mod-option").forEach(s => s.classList.remove("selected"));
+                    opt.classList.add("selected");
+                } else {
+                    inp.checked = !inp.checked;
+                    opt.classList.toggle("selected", inp.checked);
+                }
+            });
+            opt.querySelector("input").addEventListener("change", e => {
+                if (e.target.type === "radio") {
+                    opt.parentElement.querySelectorAll(".mod-option").forEach(s => s.classList.remove("selected"));
+                    opt.classList.add("selected");
+                } else {
+                    opt.classList.toggle("selected", e.target.checked);
+                }
+            });
+        });
+    }
+
+    function closeModal() {
+        $("modalOverlay").classList.remove("show");
+        editingItem = null;
+    }
+
+    $("modalOverlay").addEventListener("click", e => {
+        if (e.target.id === "modalOverlay") closeModal();
+    });
+
+    function addToCart() {
+        const item = editingItem;
+        const groups = item.mods || [];
+        const selections = [];
+        let ok = true;
+
+        groups.forEach(g => {
+            const errEl = $("modal").querySelector(`.mod-error[data-gid="${g.id}"]`);
+            const inputs = $("modal").querySelectorAll(`input[data-gid="${g.id}"]:checked`);
+            if (g.required && inputs.length === 0) {
+                errEl.classList.add("show");
+                ok = false;
+                return;
+            }
+            errEl.classList.remove("show");
+            if (g.max && inputs.length > g.max) {
+                errEl.textContent = `Pick at most ${g.max}.`;
+                errEl.classList.add("show");
+                ok = false;
+                return;
+            }
+            const chosen = [...inputs].map(i => {
+                const oi = parseInt(i.dataset.oi);
+                return g.options[oi];
+            });
+            if (chosen.length) selections.push({ groupLabel: g.label, choices: chosen });
+        });
+
+        if (!ok) return;
+
+        let price = item.base || 0;
+        selections.forEach(s => s.choices.forEach(c => price += c.price));
+
+        cart.push({
+            cid: uid(),
+            name: item.name,
+            img: item.img,
+            unitPrice: price,
+            qty: 1,
+            selections
+        });
+        renderCart();
+        closeModal();
+    }
+
+    /* ============ CART ============ */
+    function renderCart() {
+        const card = $("cartCard");
+        const totalCount = cart.reduce((a,b) => a + b.qty, 0);
+
+        if (cart.length === 0) {
+            card.innerHTML = `
+                <h3>Your Order</h3>
+                <div class="cart-empty">Your cart is empty. Pick an item to get started.</div>`;
+            return;
+        }
+
+        let html = `<h3>Your Order <span class="count">${totalCount} item${totalCount===1?'':'s'}</span></h3>`;
+        cart.forEach(ci => {
+            const opts = ci.selections.flatMap(s => s.choices.map(c => c.name)).join(", ");
+            html += `
+                <div class="cart-item">
+                    <div class="info">
+                        <div class="name">${ci.name}</div>
+                        ${opts ? `<div class="opts">${opts}</div>` : ""}
+                        <div class="row">
+                            <div class="qty">
+                                <button onclick="changeQty('${ci.cid}',-1)">−</button>
+                                <span>${ci.qty}</span>
+                                <button onclick="changeQty('${ci.cid}',1)">+</button>
+                            </div>
+                            <div class="price">${money(ci.unitPrice * ci.qty)}</div>
+                        </div>
+                        <button class="cart-remove" onclick="removeItem('${ci.cid}')" style="margin-top:6px;">Remove</button>
+                    </div>
+                </div>`;
+        });
+
+        const subtotal = cart.reduce((a,b) => a + b.unitPrice * b.qty, 0);
+        const tax = subtotal * TAX_RATE;
+        const total = subtotal + tax;
+
+        html += `
+            <div class="cart-totals">
+                <div class="totline"><span>Subtotal</span><span>${money(subtotal)}</span></div>
+                <div class="totline"><span>Tax (8.875%)</span><span>${money(tax)}</span></div>
+                <div class="totline grand"><span>Total</span><span>${money(total)}</span></div>
+            </div>
+
+            <form class="cart-form" id="checkoutForm" onsubmit="submitOrder(event)">
+                <label for="cust-name">Name</label>
+                <input id="cust-name" required placeholder="Your name">
+
+                <label for="cust-phone">Phone</label>
+                <input id="cust-phone" type="tel" required placeholder="(555) 123-4567">
+
+                <label for="cust-time">Pickup Time</label>
+                <select id="cust-time" required>
+                    <option value="asap">ASAP (about 20 min)</option>
+                    <option>In 30 min</option>
+                    <option>In 45 min</option>
+                    <option>In 1 hour</option>
+                    <option>In 1.5 hours</option>
+                    <option>In 2 hours</option>
+                </select>
+
+                <label for="cust-notes">Notes (optional)</label>
+                <textarea id="cust-notes" placeholder="Any special instructions"></textarea>
+
+                <button type="submit" class="submit-btn">Submit Pickup Order · ${money(total)}</button>
+            </form>`;
+
+        card.innerHTML = html;
+    }
+
+    function changeQty(cid, delta) {
+        const it = cart.find(c => c.cid === cid);
+        if (!it) return;
+        it.qty += delta;
+        if (it.qty < 1) cart = cart.filter(c => c.cid !== cid);
+        renderCart();
+    }
+
+    function removeItem(cid) {
+        cart = cart.filter(c => c.cid !== cid);
+        renderCart();
+    }
+
+    function submitOrder(e) {
+        e.preventDefault();
+        const orderId = "GOL-" + uid().toUpperCase().slice(0,8);
+        const name = $("cust-name").value || "you";
+        const time = $("cust-time").value;
+        // We will wire real submission later. For now just confirm.
+        $("cartCard").innerHTML = `
+            <div class="success-state">
+                <div class="success-check">✓</div>
+                <h2>Your order is successfully submitted.</h2>
+                <p>Thanks, ${name}. We'll start preparing your pickup order at 100 N 9th Street, Stroudsburg.</p>
+                <div class="order-id">Order # ${orderId}</div>
+                <p style="font-size: 13px;">Pickup: ${time === "asap" ? "ASAP (about 20 min)" : time}. Need to change something? Call <a href="tel:484-912-5218" style="color: var(--green); font-weight: 600;">484 912 5218</a>.</p>
+                <button class="btn btn-ghost" style="margin-top: 16px;" onclick="resetOrder()">Place another order</button>
+            </div>`;
+        cart = [];
+        window.scrollTo({ top: $("cartCard").offsetTop - 120, behavior: "smooth" });
+    }
+
+    function resetOrder() {
+        renderCart();
+    }
+
+    /* ============ BOOT ============ */
+    renderTabs();
+    renderItems();
+    renderCart();
+    </script>
+
+</body>
+</html>

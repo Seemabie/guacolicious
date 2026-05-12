@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Guac-O-Licious</title>
+    <meta name="description" content="Birria tacos, burrito bowls, nachos, quesadillas, sides, drinks and desserts. Fresh and made to order.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="topbar">
+        <strong>100% HALAL</strong>
+        <span class="pipe">|</span>
+        <strong>10% OFF ALWAYS</strong>
+        for Students, Military, Veterans, Seniors 60+, Medical Workers & First Responders
+    </div>
+
+    <header class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">GUAC<span class="dot">.</span>O<span class="dot">.</span>LICIOUS</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html" class="active">Menu</a></li>
+                    <li><a href="build.html">Build Your Own</a></li>
+                    <li><a href="family.html">Family Kits</a></li>
+                    <li><a href="ingredients.html">Ingredients</a></li>
+                    <li><a href="contact.html">Visit</a></li>
+                </ul>
+            </nav>
+            <a href="order.html" class="btn btn-primary">Order Pickup</a>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="page-head">
+        <span class="eyebrow">The Menu</span>
+        <h1>Made to order. Made to be loved.</h1>
+        <p>Pick a favorite, share a family kit, or build your own. We will keep this list growing as the kitchen rolls out more.</p>
+    </div>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="section-inner">
+
+            <!-- BIRRIA TACOS LICIOUS -->
+            <div class="menu-cat">
+                <h2>Birria Tacos Licious <span class="small">Slow braised, dipped in consomé</span></h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/birria-tacos.jpg" alt="Birria Tacos 2 piece"></div>
+                        <div class="body">
+                            <h3>Birria Tacos (2 pc)</h3>
+                            <p>Chicken or beef, griddled in chili oil and served with consomé for dipping.</p>
+                            <span class="cal-tag">430 to 1150 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/tacos-soft.jpg" alt="Birria Tacos 3 piece"></div>
+                        <div class="body">
+                            <h3>Birria Tacos (3 pc)</h3>
+                            <p>Three of the same, for when two isn't enough. Comes with consomé.</p>
+                            <span class="cal-tag">430 to 1150 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/quesadilla.jpg" alt="Birria Pie"></div>
+                        <div class="body">
+                            <h3>Birria Pie</h3>
+                            <p>Our shareable birria quesadilla pie, layered and griddled until crisp.</p>
+                            <span class="cal-tag">Party Size</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- LICIOUS TACOS -->
+            <div class="menu-cat">
+                <h2>Licious Tacos <span class="small">Soft or crispy, your pick</span></h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/tacos-ground-beef.jpg" alt="Tacos 2 piece"></div>
+                        <div class="body">
+                            <h3>Licious Tacos (2 pc)</h3>
+                            <p>Soft or crispy shells, one meat, your choice of fresh toppings.</p>
+                            <span class="cal-tag">390 to 1240 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/tacos-loaded.jpg" alt="Tacos 3 piece"></div>
+                        <div class="body">
+                            <h3>Licious Tacos (3 pc)</h3>
+                            <p>Same setup, three tacos deep. Mix and match shells and toppings.</p>
+                            <span class="cal-tag">390 to 1240 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/crispy-tacos.jpg" alt="Crispy Tacos"></div>
+                        <div class="body">
+                            <h3>Crispy Street Tacos</h3>
+                            <p>Crunchy corn shells, your protein, finished with cilantro, onion and lime.</p>
+                            <span class="cal-tag">390 to 1240 Cal</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- SPECIAL LICIOUS -->
+            <div class="menu-cat">
+                <h2>Specials <span class="small">House favorites</span></h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/tostada.jpg" alt="Tostada"></div>
+                        <div class="body">
+                            <h3>Tostada</h3>
+                            <p>One protein on a crispy shell with black beans, pico, cheese, guac, lettuce and sauce.</p>
+                            <span class="cal-tag">333 to 690 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/taco-salad.jpg" alt="Taco Salad"></div>
+                        <div class="body">
+                            <h3>Taco Salad</h3>
+                            <p>Crispy tortilla bowl with mixed greens, your protein, beans, cheese and salsa.</p>
+                            <span class="cal-tag">450 to 980 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/salad-bowl.jpg" alt="Salad Bowl"></div>
+                        <div class="body">
+                            <h3>Salad Bowl</h3>
+                            <p>Greens, fajita veggies, your protein and a light cilantro lime dressing.</p>
+                            <span class="cal-tag">390 to 820 Cal</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- KIDS -->
+            <div class="menu-cat">
+                <h2>Kids Meals <span class="small">Includes organic milk or water</span></h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/tacos-soft.jpg" alt="Kids Create Your Own"></div>
+                        <div class="body">
+                            <h3>Kids Create Your Own</h3>
+                            <p>Choice of one meat or guac with two toppings on two soft or crispy tortillas.</p>
+                            <span class="cal-tag">300 to 530 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/quesadilla.jpg" alt="Kids Cheese Quesadilla"></div>
+                        <div class="body">
+                            <h3>Kids Cheese Quesadilla</h3>
+                            <p>Griddled flour tortilla with melted cheese, served simple.</p>
+                            <span class="cal-tag">310 to 540 Cal</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- SIDES -->
+            <div class="menu-cat">
+                <h2>Sides <span class="small">Built for sharing</span></h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/chips.jpg" alt="Fresh Chips"></div>
+                        <div class="body">
+                            <h3>Fresh Chips</h3>
+                            <p>House made crispy tortilla chips, salted while warm.</p>
+                            <span class="cal-tag">430 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/guacamole.jpg" alt="Fresh Guacamole"></div>
+                        <div class="body">
+                            <h3>Fresh Guacamole</h3>
+                            <p>Hand mashed avocados, lime, cilantro and a touch of jalapeño.</p>
+                            <span class="cal-tag">270 to 660 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/chips-queso.jpg" alt="Chips and Queso"></div>
+                        <div class="body">
+                            <h3>Chips & Queso</h3>
+                            <p>Warm white queso blanco with our crispy tortilla chips.</p>
+                            <span class="cal-tag">520 to 820 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/chips-salsa-roja.jpg" alt="Chips and Salsa"></div>
+                        <div class="body">
+                            <h3>Chips & Salsa</h3>
+                            <p>Choose roja, verde, pico or corn salsa with fresh chips.</p>
+                            <span class="cal-tag">435 to 545 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/chips-guacamole.jpg" alt="Chips and Guac"></div>
+                        <div class="body">
+                            <h3>Chips & Guac</h3>
+                            <p>Fresh guacamole made daily, served with house chips.</p>
+                            <span class="cal-tag">510 to 770 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/corn-salsa.jpg" alt="Sweet Corn Salsa"></div>
+                        <div class="body">
+                            <h3>Sweet Corn Salsa</h3>
+                            <p>Roasted sweet corn, red onion, cilantro, jalapeño and lime.</p>
+                            <span class="cal-tag">90 to 180 Cal</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- SAUCES & DIPS -->
+            <div class="menu-cat">
+                <h2>Salsas & Dips <span class="small">All made in house</span></h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/pico-de-gallo.jpg" alt="Pico de Gallo"></div>
+                        <div class="body">
+                            <h3>Pico de Gallo</h3>
+                            <p>Roma tomato, white onion, cilantro, lime and a pinch of salt.</p>
+                            <span class="cal-tag">40 to 95 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/salsa-roja.jpg" alt="Salsa Roja"></div>
+                        <div class="body">
+                            <h3>Salsa Roja</h3>
+                            <p>Fire roasted tomato and red chili. Medium heat.</p>
+                            <span class="cal-tag">45 to 110 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/salsa-verde.jpg" alt="Salsa Verde"></div>
+                        <div class="body">
+                            <h3>Salsa Verde</h3>
+                            <p>Tomatillo, serrano and lime. Bright and tangy.</p>
+                            <span class="cal-tag">40 to 95 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/queso-blanco.jpg" alt="Queso Blanco"></div>
+                        <div class="body">
+                            <h3>Queso Blanco</h3>
+                            <p>Warm, creamy white cheese dip with a hint of chile.</p>
+                            <span class="cal-tag">456 to 780 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/cilantro-lime-crema.jpg" alt="Cilantro Lime Crema"></div>
+                        <div class="body">
+                            <h3>Cilantro Lime Crema</h3>
+                            <p>Cool, herby and lightly tangy. A go to drizzle.</p>
+                            <span class="cal-tag">90 to 180 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/guacamole.jpg" alt="House Guacamole"></div>
+                        <div class="body">
+                            <h3>House Guacamole</h3>
+                            <p>Mashed avocado, lime, cilantro and jalapeño. Made all day.</p>
+                            <span class="cal-tag">270 to 660 Cal</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- DESSERTS -->
+            <div class="menu-cat">
+                <h2>Desserts <span class="small">Sweet endings</span></h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/churros.jpg" alt="Churros"></div>
+                        <div class="body">
+                            <h3>Churros</h3>
+                            <p>Crisp on the outside, soft inside. Dusted with cinnamon sugar.</p>
+                            <span class="cal-tag">320 Cal</span>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <div class="ph"><img src="NEW_Food_Images/tres-leches.jpg" alt="Tres Leches Cake"></div>
+                        <div class="body">
+                            <h3>Tres Leches Cake</h3>
+                            <p>Light sponge soaked in three milks, finished with cream.</p>
+                            <span class="cal-tag">410 Cal</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: var(--muted); font-size: 14px; margin-top: 40px;">More items coming soon. Prices, sizes and beverage list will be added shortly.</p>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <h2>Hungry yet?</h2>
+        <p>Order pickup or delivery, or stop by the shop on N 9th Street.</p>
+        <div class="btn-row">
+            <a href="order.html" class="btn btn-primary">Order Pickup</a>
+            <a href="build.html" class="btn btn-ghost">Build Your Own</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="brand-block">
+                <div class="brand">GUAC<span class="dot">.</span>O<span class="dot">.</span>LICIOUS</div>
+                <p>Fresh, healthy, 100% halal Mexican grill serving Stroudsburg, PA. Made fresh daily with premium ingredients.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="build.html">Build Your Own</a></li>
+                    <li><a href="family.html">Family Kits</a></li>
+                    <li><a href="ingredients.html">Ingredients</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Order</h4>
+                <ul>
+                    <li><a href="order.html">Pickup Online</a></li>
+                    <li><a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w" target="_blank" rel="noopener">Uber Eats</a></li>
+                    <li><a href="https://www.grubhub.com" target="_blank" rel="noopener">Grubhub</a></li>
+                    <li><a href="https://www.doordash.com" target="_blank" rel="noopener">DoorDash</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Visit</h4>
+                <ul>
+                    <li>100 N 9th Street</li>
+                    <li>Stroudsburg, PA 18360</li>
+                    <li><a href="tel:484-912-5218">484 912 5218</a></li>
+                    <li>Open 7 days a week</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Guac-O-Licious. All rights reserved.</span>
+            <span>Fresh & Healthy Mexican Grill</span>
+        </div>
+    </footer>
+
+</body>
+</html>

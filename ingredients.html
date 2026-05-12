@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Ingredients | Guac-O-Licious</title>
+    <meta name="description" content="Real produce, premium proteins and homemade sauces. Here is what goes into every plate at Guac-O-Licious.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="topbar">
+        <strong>100% HALAL</strong>
+        <span class="pipe">|</span>
+        <strong>10% OFF ALWAYS</strong>
+        for Students, Military, Veterans, Seniors 60+, Medical Workers & First Responders
+    </div>
+
+    <header class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">GUAC<span class="dot">.</span>O<span class="dot">.</span>LICIOUS</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="build.html">Build Your Own</a></li>
+                    <li><a href="family.html">Family Kits</a></li>
+                    <li><a href="ingredients.html" class="active">Ingredients</a></li>
+                    <li><a href="contact.html">Visit</a></li>
+                </ul>
+            </nav>
+            <a href="order.html" class="btn btn-primary">Order Pickup</a>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="page-head">
+        <span class="eyebrow">What's Inside</span>
+        <h1>Real food. Nothing to hide.</h1>
+        <p>Every salsa, sauce and side starts with whole produce, prepped that morning. Here is a look at what goes into our kitchen.</p>
+    </div>
+
+    <!-- Hero collage -->
+    <section class="section" style="padding-top: 0;">
+        <div class="section-inner">
+            <img src="7.jpg" alt="Fresh produce used at Guac-O-Licious" style="width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--line);">
+        </div>
+    </section>
+
+    <!-- Halal story -->
+    <section class="section soft">
+        <div class="section-inner split">
+            <div>
+                <span class="eyebrow" style="color: var(--green); border-color: var(--green); background: var(--green-soft); margin-bottom: 18px;">100% Halal</span>
+                <h2>Every protein is halal certified.</h2>
+                <p>All of our chicken, beef and shrimp is sourced from trusted halal suppliers. We do not serve pork, and we do not cook with alcohol. You can order anything on the menu with confidence.</p>
+                <p>Halal is the standard, not a special request.</p>
+            </div>
+            <img src="NEW_Food_Images/chicken-al-pastor.jpg" alt="Halal grilled chicken">
+        </div>
+    </section>
+
+    <!-- Guacamole story -->
+    <section class="section">
+        <div class="section-inner split">
+            <img src="Vegetables/avocado.jpg" alt="Fresh avocados">
+            <div>
+                <span class="eyebrow" style="color: var(--green); border-color: var(--green); background: var(--green-soft); margin-bottom: 18px;">Guacamole</span>
+                <h2>Mashed by hand, every day.</h2>
+                <p>Our guacamole is made from scratch with ripe Hass avocados, fresh lime, cilantro, white onion and a pinch of jalapeño. No fillers, no preservatives, no shortcuts.</p>
+                <p>It is the reason we exist. It is also the reason the menu is named what it is.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fresh produce grid -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="section-head">
+                <h2>The produce we love</h2>
+                <p>A peek at the fresh stuff we keep on hand.</p>
+            </div>
+            <div class="ing-grid">
+                <div class="ing"><img src="Vegetables/tomatoes.jpg" alt="Tomatoes"><div class="name">Roma Tomatoes</div></div>
+                <div class="ing"><img src="Vegetables/tomatillos.jpg" alt="Tomatillos"><div class="name">Tomatillos</div></div>
+                <div class="ing"><img src="Vegetables/jalapenos.jpg" alt="Jalapeños"><div class="name">Jalapeños</div></div>
+                <div class="ing"><img src="Vegetables/white-onion.jpg" alt="White Onion"><div class="name">White Onion</div></div>
+                <div class="ing"><img src="Vegetables/red-onion.jpg" alt="Red Onion"><div class="name">Red Onion</div></div>
+                <div class="ing"><img src="Vegetables/garlic.jpg" alt="Garlic"><div class="name">Garlic</div></div>
+                <div class="ing"><img src="Vegetables/cilantro.jpg" alt="Cilantro"><div class="name">Cilantro</div></div>
+                <div class="ing"><img src="Vegetables/limes.jpg" alt="Limes"><div class="name">Limes</div></div>
+                <div class="ing"><img src="Vegetables/lemons.jpg" alt="Lemons"><div class="name">Lemons</div></div>
+                <div class="ing"><img src="Vegetables/green-bell-pepper.jpg" alt="Green Bell Pepper"><div class="name">Bell Pepper</div></div>
+                <div class="ing"><img src="Vegetables/spinach.jpg" alt="Spinach"><div class="name">Spinach</div></div>
+                <div class="ing"><img src="Vegetables/mixed-greens.jpg" alt="Mixed Greens"><div class="name">Mixed Greens</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pantry grid -->
+    <section class="section soft">
+        <div class="section-inner">
+            <div class="section-head">
+                <h2>From the pantry</h2>
+                <p>Proteins, grains, beans and the spices behind the flavors.</p>
+            </div>
+            <div class="ing-grid">
+                <div class="ing"><img src="Ingredients/chicken.jpg" alt="Chicken"><div class="name">Chicken</div></div>
+                <div class="ing"><img src="Ingredients/beef.jpg" alt="Beef"><div class="name">Beef</div></div>
+                <div class="ing"><img src="Ingredients/black-beans.jpg" alt="Black Beans"><div class="name">Black Beans</div></div>
+                <div class="ing"><img src="Ingredients/pinto-beans.jpg" alt="Pinto Beans"><div class="name">Pinto Beans</div></div>
+                <div class="ing"><img src="Ingredients/brown-rice.jpg" alt="Brown Rice"><div class="name">Brown Rice</div></div>
+                <div class="ing"><img src="Ingredients/white-rice.jpg" alt="White Rice"><div class="name">White Rice</div></div>
+                <div class="ing"><img src="Ingredients/white-cheddar.jpg" alt="White Cheddar"><div class="name">White Cheddar</div></div>
+                <div class="ing"><img src="Ingredients/cheddar-cheese.jpg" alt="Cheddar"><div class="name">Cheddar</div></div>
+                <div class="ing"><img src="Ingredients/cumin.jpg" alt="Cumin"><div class="name">Cumin</div></div>
+                <div class="ing"><img src="Ingredients/oregano.jpg" alt="Oregano"><div class="name">Oregano</div></div>
+                <div class="ing"><img src="Ingredients/chipotle-chile.jpg" alt="Chipotle Chile"><div class="name">Chipotle</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <h2>Hungry yet?</h2>
+        <p>Order online or come visit us in Stroudsburg.</p>
+        <div class="btn-row">
+            <a href="order.html" class="btn btn-primary">Order Pickup</a>
+            <a href="menu.html" class="btn btn-ghost">See the menu</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="brand-block">
+                <div class="brand">GUAC<span class="dot">.</span>O<span class="dot">.</span>LICIOUS</div>
+                <p>Fresh, healthy, 100% halal Mexican grill serving Stroudsburg, PA. Made fresh daily with premium ingredients.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="build.html">Build Your Own</a></li>
+                    <li><a href="family.html">Family Kits</a></li>
+                    <li><a href="ingredients.html">Ingredients</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Order</h4>
+                <ul>
+                    <li><a href="order.html">Pickup Online</a></li>
+                    <li><a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w" target="_blank" rel="noopener">Uber Eats</a></li>
+                    <li><a href="https://www.grubhub.com" target="_blank" rel="noopener">Grubhub</a></li>
+                    <li><a href="https://www.doordash.com" target="_blank" rel="noopener">DoorDash</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Visit</h4>
+                <ul>
+                    <li>100 N 9th Street</li>
+                    <li>Stroudsburg, PA 18360</li>
+                    <li><a href="tel:484-912-5218">484 912 5218</a></li>
+                    <li>Open 7 days a week</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Guac-O-Licious. All rights reserved.</span>
+            <span>Fresh & Healthy Mexican Grill</span>
+        </div>
+    </footer>
+
+</body>
+</html>

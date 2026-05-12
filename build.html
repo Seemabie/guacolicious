@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Own | Guac-O-Licious</title>
+    <meta name="description" content="Pick a base, choose your protein, pile on toppings and finish with a homemade sauce.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="topbar">
+        <strong>100% HALAL</strong>
+        <span class="pipe">|</span>
+        <strong>10% OFF ALWAYS</strong>
+        for Students, Military, Veterans, Seniors 60+, Medical Workers & First Responders
+    </div>
+
+    <header class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">GUAC<span class="dot">.</span>O<span class="dot">.</span>LICIOUS</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="build.html" class="active">Build Your Own</a></li>
+                    <li><a href="family.html">Family Kits</a></li>
+                    <li><a href="ingredients.html">Ingredients</a></li>
+                    <li><a href="contact.html">Visit</a></li>
+                </ul>
+            </nav>
+            <a href="order.html" class="btn btn-primary">Order Pickup</a>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="page-head">
+        <span class="eyebrow">Build Your Own</span>
+        <h1>Four steps to your perfect plate.</h1>
+        <p>Pick a base. Choose your protein. Pile on the toppings. Finish with a homemade sauce. Range is roughly 420 to 1310 calories depending on selections.</p>
+    </div>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="section-inner" style="max-width: 960px;">
+
+            <!-- Step 1 -->
+            <div class="step">
+                <div class="step-head">
+                    <div class="step-num">1</div>
+                    <h3>Pick your base</h3>
+                    <span class="note">420 to 1310 Cal range</span>
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Bowl</span>
+                    <span class="chip">Burrito</span>
+                    <span class="chip">Nachos</span>
+                    <span class="chip">Quesadilla</span>
+                    <span class="chip">Crunch Wrap</span>
+                    <span class="chip">Salad</span>
+                    <span class="chip">Taco Salad</span>
+                    <span class="chip">Fries</span>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step">
+                <div class="step-head">
+                    <div class="step-num">2</div>
+                    <h3>Choose your protein</h3>
+                </div>
+                <div class="row-list">
+                    <div class="row"><span class="name">Grilled Chicken</span><span class="meta">280 Cal</span></div>
+                    <div class="row"><span class="name">Honey Chipotle Chicken</span><span class="meta">330 Cal</span></div>
+                    <div class="row"><span class="name">Chicken al Pastor</span><span class="meta">300 Cal</span></div>
+                    <div class="row"><span class="name">Grilled Steak</span><span class="meta">310 Cal</span></div>
+                    <div class="row"><span class="name">Ground Beef</span><span class="meta">350 Cal</span></div>
+                    <div class="row"><span class="name">Beef Barbacoa</span><span class="meta">340 Cal</span></div>
+                    <div class="row"><span class="name">Grilled Shrimp</span><span class="meta">220 Cal</span></div>
+                    <div class="row"><span class="name">Veggie Fajita with Guac</span><span class="meta">200 Cal</span></div>
+                    <div class="row"><span class="name">Tofu</span><span class="meta">210 Cal</span></div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step">
+                <div class="step-head">
+                    <div class="step-num">3</div>
+                    <h3>Pile on the toppings</h3>
+                    <span class="note">All free, all fresh</span>
+                </div>
+                <div class="chip-row">
+                    <span class="chip">Black Beans</span>
+                    <span class="chip">Pinto Beans</span>
+                    <span class="chip">White Rice</span>
+                    <span class="chip">Brown Rice</span>
+                    <span class="chip">Cilantro Lime Rice</span>
+                    <span class="chip">Romaine Lettuce</span>
+                    <span class="chip">Pico de Gallo</span>
+                    <span class="chip">Corn Salsa</span>
+                    <span class="chip">Salsa Roja</span>
+                    <span class="chip">Salsa Verde</span>
+                    <span class="chip">Cheddar</span>
+                    <span class="chip">White Cheddar</span>
+                    <span class="chip">Pickled Jalapeño</span>
+                    <span class="chip">Red Onion</span>
+                    <span class="chip">Cilantro</span>
+                    <span class="chip">Sour Cream</span>
+                </div>
+                <p style="color: var(--muted); font-size: 13.5px; margin-top: 14px;">Add fresh guac or extra protein for a small upcharge.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step">
+                <div class="step-head">
+                    <div class="step-num">4</div>
+                    <h3>Finish with a sauce</h3>
+                    <span class="note">All made in house</span>
+                </div>
+                <div class="row-list">
+                    <div class="row"><span class="name">Chipotle</span><span class="meta">Smoky · Medium</span></div>
+                    <div class="row"><span class="name">Mango</span><span class="meta">Sweet · Mild</span></div>
+                    <div class="row"><span class="name">Lemon</span><span class="meta">Bright · Mild</span></div>
+                    <div class="row"><span class="name">Sour Cream</span><span class="meta">Cool · Mild</span></div>
+                    <div class="row"><span class="name">Guacado (Avocado)</span><span class="meta">Creamy · Mild</span></div>
+                    <div class="row"><span class="name">Smoky Habanero</span><span class="meta">Bold · Hot</span></div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 36px;">
+                <a href="order.html" class="btn btn-primary btn-lg">Build it for pickup</a>
+                <a href="contact.html" class="btn btn-ghost btn-lg" style="margin-left: 8px;">Or come in</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="brand-block">
+                <div class="brand">GUAC<span class="dot">.</span>O<span class="dot">.</span>LICIOUS</div>
+                <p>Fresh, healthy, 100% halal Mexican grill serving Stroudsburg, PA. Made fresh daily with premium ingredients.</p>
+            </div>
+            <div>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="build.html">Build Your Own</a></li>
+                    <li><a href="family.html">Family Kits</a></li>
+                    <li><a href="ingredients.html">Ingredients</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Order</h4>
+                <ul>
+                    <li><a href="order.html">Pickup Online</a></li>
+                    <li><a href="https://www.ubereats.com/store/guac-o-licious-mexican-grill-100-north-9th-street/vfTOrEP9XjSD5LqVnMiB6w" target="_blank" rel="noopener">Uber Eats</a></li>
+                    <li><a href="https://www.grubhub.com" target="_blank" rel="noopener">Grubhub</a></li>
+                    <li><a href="https://www.doordash.com" target="_blank" rel="noopener">DoorDash</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Visit</h4>
+                <ul>
+                    <li>100 N 9th Street</li>
+                    <li>Stroudsburg, PA 18360</li>
+                    <li><a href="tel:484-912-5218">484 912 5218</a></li>
+                    <li>Open 7 days a week</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Guac-O-Licious. All rights reserved.</span>
+            <span>Fresh & Healthy Mexican Grill</span>
+        </div>
+    </footer>
+
+</body>
+</html>
